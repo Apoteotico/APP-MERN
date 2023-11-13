@@ -2,7 +2,7 @@ import mongoose from "mongoose"
 
 //En la linea 5 estamos definiendo cómo deben ser los datos de un usuario en nuestra base de datos. Un usuario debe tener un nombre de usuario (username), un correo electrónico (email), y una contraseña (password).
 
-const userSchema = mongoose.Schema({
+const userSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
@@ -16,8 +16,10 @@ const userSchema = mongoose.Schema({
   },
   password: {
     type: String,
-    required: true
+    required: true,
   }
+}, {
+    timestamps: true
 })
 
 // en la linea 26 creamos el modelo de User:
